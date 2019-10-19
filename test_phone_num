@@ -1,0 +1,19 @@
+class MyException(Exception):
+    pass
+
+
+def func():
+    global phone_num
+    phone_num = input("请输入手机号：")
+    if not phone_num.isdigit():
+        raise MyException("手机号码含非数字")
+    elif len(phone_num) != 11:
+        raise MyException("手机号长度不够")
+
+
+try:
+    func()
+except MyException as error:
+    print("提示：{}".format(error))
+else:
+    print("手机号为{}".format(phone_num))
